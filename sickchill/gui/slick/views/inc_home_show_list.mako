@@ -236,7 +236,11 @@
                         <td align="center" data-show-size="${show_size}">${pretty_file_size(show_size)}</td>
 
                         <td align="center">
+                            % try:
                             <span>${curShow.location[:25]}...</span>
+                            % except:
+                            <span style="color:#e00">(missing)</span>
+                            % endtry
                         </td>
 
                         <td align="center">
