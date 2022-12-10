@@ -2276,7 +2276,8 @@ const SICKCHILL = {
                         return $(node).data('show-size');
                     },
                     7(node) {
-                        return ($(node).find('span').attr('title') || 'No').toLowerCase();
+                        // return ($(node).find('span').attr('title') || 'No').toLowerCase();
+                        return latinize($(node).text().normalize('NFC'));
                     },
                 },
                 widgets: ['saveSort', 'zebra', 'stickyHeaders', 'filter', 'columnSelector'],
@@ -2287,7 +2288,7 @@ const SICKCHILL = {
                     4: {sorter: 'quality'},
                     5: {sorter: 'digit'},
                     6: {sorter: 'digit'},
-                    7: {filter: 'parsed'},
+                    7: {sorter: 'loadingNames'},
                 },
                 widgetOptions: {
                     filter_columnFilters: true, // eslint-disable-line camelcase
